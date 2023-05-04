@@ -9,6 +9,12 @@ export class EvmLog {
     @PrimaryColumn_()
     id!: string
 
+    @Column_("int4", {nullable: false})
+    blockNumber!: number
+
+    @Column_("text", {nullable: false})
+    blockHash!: string
+
     @Column_("text", {nullable: false})
     address!: string
 

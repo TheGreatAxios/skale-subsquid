@@ -84,8 +84,16 @@ processor.run(new TypeormDatabase(), async (ctx) => {
         }));
 
         for (let item of block.items) {
-            if (item.kind === "evmLog") logs.push(new EvmLog({ ...item.evmLog }));
-            else if (item.kind === "transaction") txs.push(new EvmTransaction({ ...item.transaction }));
+            if (item.kind === "evmLog") logs.push(new EvmLog({ 
+                ...item.evmLog,
+                blockNumber: block.header.height,
+                blockHash: block.header.hash
+            }));
+            else if (item.kind === "transaction") txs.push(new EvmTransaction({ 
+                ...item.transaction,
+                blockNumber: block.header.height,
+                blockHash: block.header.hash
+            }));
         }
 
         

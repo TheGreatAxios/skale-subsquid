@@ -23,6 +23,8 @@ type EvmBlock @entity {
 
 type EvmTransaction @entity {
   id: ID!
+  blockNumber: Int!
+  blockHash: String!
   from: String
   gas: BigInt!
   gasPrice: BigInt
@@ -45,6 +47,8 @@ type EvmTransaction @entity {
 
 type EvmLog @entity {
   id: ID!
+  blockNumber: Int!
+  blockHash: String!
   address: String!
   data: String!
   index: Int!
