@@ -1,1 +1,3 @@
-export * from "./burn.model"
+export * from "./evmBlock.model"
+export * from "./evmTransaction.model"
+export * from "./evmLog.model"

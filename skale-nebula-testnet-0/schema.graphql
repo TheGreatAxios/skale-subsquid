@@ -1,7 +1,54 @@
-type Burn @entity {
+type EvmBlock @entity {
   id: ID!
-  block: Int!
-  address: String! @index
+  height: Int!
+  hash: String!
+  parentHash: String!
+  nonce: BigInt
+  sha3Uncles: String!
+  logsBloom: String!
+  transactionsRoot: String!
+  stateRoot: String!
+  receiptsRoot: String!
+  miner: String!
+  difficulty: String
+  totalDifficulty: String
+  extraData: String!
+  size: BigInt!
+  gasLimit: BigInt!
+  gasUsed: BigInt!
+  timestamp: BigInt!
+  mixHash: String
+  baseFeePerGas: BigInt
+}
+
+type EvmTransaction @entity {
+  id: ID!
+  from: String
+  gas: BigInt!
+  gasPrice: BigInt
+  hash: String!
+  input: String!
+  nonce: BigInt!
+  to: String
+  index: Int!
   value: BigInt!
-  txHash: String!
+  type: Int
+  chainId: Int
+  v: BigInt!
+  r: String!
+  s: String!
+  maxPriorityFeePerGas: BigInt
+  maxFeePerGas: BigInt
+  yParity: Int
+  status: Int
+}
+
+type EvmLog @entity {
+  id: ID!
+  address: String!
+  data: String!
+  index: Int!
+  removed: Boolean
+  topics: [String!]!
+  transactionIndex: Int!
 }
