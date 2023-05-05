@@ -5,6 +5,7 @@ import { EvmBlock, EvmLog, EvmTransaction } from "./model";
 
 const processor = new EvmBatchProcessor()
     .setDataSource({
+        chain: "https://staging-v3.skalenodes.com/v1/staging-faint-slimy-achird",
         archive: lookupArchive("skale-nebula-staging"),
     })
     .addTransaction([], {
